@@ -20,14 +20,30 @@ a_n = \frac{2}{T}\int_{0}^{T}f(t) \cdot \cos(n\omega t)dt \qquad b_n = \frac{2}{
 \]
 
 \noindent Der erste Koeffizient $a_0$ der Funktion $f(t)$ ist der Mittelwert im Intervall $(0; T)$. Bei einer Fallunterscheidung von $f(t)$ müssen Integrale von allen Fällen (mit entsprechenden Grenzen von $f_n$) summiert werden.
+~\\
 
-\todo{Fr 14.5.21}
+\noindent Mittels der komplexen Darstellung werden die Fourierkoeffizienten mit $c_n \rightarrow \Re(c_n) = a_n; \Im(c_n) = b_n$ dargestellt.
+\[
+\sum_{k=-\infty}^{\infty}\left(c_ke^{jk\omega_f t}\right)
+\]
+Diese Fourierkoeffizienten $c_n$ können mit einer Integration berechnet werden:
+\[
+c_n = \frac{1}{T} \int_{0}^{T}f(t)\cdot e^{-jn\omega_f t} dt
+\]
+
+\subsubsection{Umrechnung}\label{umrechnung}
+Um Komplexe zu Reellen Koeffizieten umzurechnen können folgende Formeln gebraucht werden:
+\begin{align*}
+	c_n = \overline{c_{-n}} &= \frac{a_n - jb_n}{2} &\qquad n \in (0,1,2, \cdots, b_0 = 0) \\
+	a_n &= 2\Re(c_n) = c_n + c_{-n}  &\qquad n \in (0,1,2, \cdots) \\
+	b_n &= -2\Im(c_n) = j(c_n + c_{-n}) &\qquad n \in (1,2, \cdots) \\
+\end{align*}
 
 \subsection{Tip's}
 \todo{Di. 25.5.21}
 \begin{enumerate}[nosep]
-	\item Symmetrie
-	\item Linearität
-	\item Zeitspiegelung
-	\item Zeitverschiebung
+	\item Symmetrie 3.3.1 $f(-t) = f(t)$
+	\item Linearität Kapitel 3.3.2
+	\item Zeitspiegelung Kapitel 3.3.3
+	\item Zeitverschiebung Kapitel 3.3.4
 \end{enumerate}

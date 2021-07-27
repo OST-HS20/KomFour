@@ -1,54 +1,80 @@
 \section{Komplexe Funktionen}
 \subsection{Exponential-/Logarithmusfunktion}
-\[e^{j\zeta}=\cos\zeta + j\sin\zeta\]
+\[e^{j\zeta}= \cjs(\zeta) = \cos\zeta + j\sin\zeta\]
+
+\[e^z= e^{z_1 + jz_2} = e^{z_1}\cdot e^{jz_2} = e^{z_1} \cdot \cjs(z_2) \qquad z \in \mathbb{C} \]
 Realteil $z_1$ von $e^{z_1+jz_2}$ ist der Streckungsfaktor. Der Imaginärteil $z_2$ ist der zweite Term.
 
-\subsection{Trigonometrie}
-\[\sin(z) = \frac{e^{jz} -e^{-jz}}{2j} \qquad \cos(a) = \frac{e^{jz} +e^{-jz}}{2} \qquad (z \in \mathbb{C})\]
+\subsection{Trigonometrie ($z \in \mathbb{C})$}
+\[\sin(z) = \frac{e^{jz} -e^{-jz}}{2j} \quad \cos(a) = \frac{e^{jz} +e^{-jz}}{2} \quad \tan(z) = \frac{\sin(z)}{\cos(z)}\]
 
 \subsection{Harmonische Schwingungen}
-\todo{Summe von Komplexen Amplitude}
+\[
+z(t) = A \cdot e^{j(\omega t + \varphi)} = \underbrace{A \cdot e^{j\varphi}}_\text{Komplexe Amplitude} \cdot \underbrace{e^{j\omega t}}_{\text{Zeitfunktion}}
+\]
+\noindent Die Überlagerung von harmonischen Schwingungen können mittels Superpositions-Prinzip berechnet werden.
+
+\noindent Beispiel:
+\begin{align*}
+	y_1 &= A\sin[\omega t + \varphi] &\qquad y_2 &= A\sin[\omega t + (\varphi + 120°)] \\
+	    &= A e ^{j(\omega t + j\varphi)} &\qquad  &= A e^{j(\omega t + \varphi - 120)}\\
+ 	    &= A e ^{j\omega t} \cdot \underbrace{e^{j\varphi}}_{K_1} &\qquad  &= A e^{j\omega t} \cdot \underbrace{e^{j(\varphi - 120)}}_{K_2}\\    
+  	\\
+  y &= y_1 + y_2 &&= A e^{j\omega t} (K_1 + K_2) 
+\end{align*}
 
 \subsection{Logarithmus und Potenzen}
 $\mathbb{R}: \ln(1) = 0 \quad \mathbb{C}: \Ln(1)= 2k\pi j$
 \[\Ln(z) = \ln(\left|z\right|) + j\cdot arg(z) \]
-\todo{$\Ln(0)$ ndef!}
+
+\noindent\textbf{Achtung:} $\Ln(0) = undef$
+
 
 \subsection{Abbildungen}
-Um eine Abbildung durch eine Funktion auszudrüken werden gegebene Komplexe Zahlen parameterisiert und mit der Funktion verrechnet.
-\todo{KW 17 Di. Nachmittag\\
-\[z = r + cj \rightarrow f(z) \rightarrow w \]
-}
+Um eine Abbildung $w$ durch eine Funktion $f$ auszudrücken, werden gegebene Komplexe Zahlen $z_i$ parametrisiert $r(z_i), c(z_i)$ und mit $f$ verrechnet.
+\[z = r(z_i) + jc(z_i) \rightarrow f(z) = w \]
 
-\subsection{Ableitung}
-Wie in $\mathbb{R}$. Ableitung $f'$ entspricht jedoch einer Dreh-/Streckung mit Faktor $f'$. \textbf{Winkel} entspricht Ortsvektor zu Re-Achse von $f'$. Die \textbf{Streckung} ist der Betrag von $f'$.
-\todo{Fr. 30.4.21}
-
-\subsection{Potenzfunktion $z^n$}
+\subsubsection{Parametrisierung}
 \todo{}
 
-\subsection{Kehrwertfunktion $\frac{1}{z}$}
-\todo{% TODO: \usepackage{graphicx} required
-	\includegraphics[width=\linewidth]{Images/screenshot007}
-}
-\todo{Fr 7.5.21}
+\subsection{Ableitung}
+Die Ableitung $f'$ in $\mathbb{C}$ entspricht einer Drehstreckung mit Faktor $f'$. Eine differenzierbare Funktion $f$ ist in allen Punkten mit $f'(z) \neq 0$ winkeltreu. Sie bewirkt dort eine Drehstreckung mit \textbf{Drehwinkel} $\arg(f'(z))$ und \textbf{Streckfaktor} $|f'(z)|$.
 
-\subsection{Möbiustransformation}
-\todo{Di. 11.5.21 \\
-	\[f(z) = \frac{az+b}{cz+d}\]
-}
+\subsection{Potenzfunktion $f(z) = z^n$}
+In Polar-Koordinaten Darstellung werden die Winkel um das $n$-Fache verdoppelt, bzw. mit $\sqrt[n]{z}$ halbiert.
+\includegraphics[width=\columnwidth]{Images/quadrat_funktion}
 
-\subsection{Joukowski-Funktion}
-\todo{Di. 11.5.21 \\
-\[f(z) = z + \frac{1}{z}\]
-}
+\subsection{Linearefunktion $f(z) = az + b$}
+$b$ bewirkt eine Translation um den Ortsvektor $b$. $a$ bewirkt eine Drehstreckung mit Winkel $\arg(a)$ und Streckung mit $|a|$.
+\includegraphics[width=\columnwidth]{Images/lineare_funktion}
 
-\subsection{Exponentialfunktion-Funktion}
-\todo{Di. 11.5.21 \\
-	\[f(z) = e^z\]
-}
+\newpage
 
-\subsection{Trigo-Funktion}
-\todo{Di. 11.5.21 \\
-	\[f(z) = e^z\]
-}
+\subsection{Kehrwertfunktion $f(z) = \frac{1}{z}$}
+Bewirkt eine Kreisspiegelung.
+
+\includegraphics[width=\columnwidth]{Images/kehrwert_funktion}
+\noindent Folgende möglichen Fälle sind zu unterscheiden:\\
+\includegraphics[width=\columnwidth]{Images/kreisspiegelung}
+
+
+\subsection{Möbiustransformation $f(z) = \frac{az+b}{cz+d}$}
+Die Möbius-Transformation ist eine Kombination aus:
+\[
+f: z \xmapsto[u=cz+d]{\text{Linear}} u \xmapsto[v=\frac{1}{u}]{\text{Kehrwert}} v \xmapsto[w=\frac{bc-ad}{c}v+\frac{a}{c}]{\text{Linear}}
+\]
+
+\includegraphics[width=\columnwidth]{Images/möbius_funktion}
+
+\subsection{Joukowski-Funktion $f(z) = z + \frac{1}{z}$}
+Bewegt weit weg vom Koordinatenursprung unwesentlich, hingegen nahe Punkte werden zusammen gedrückt.\\
+\includegraphics[width=\columnwidth]{Images/joukowski_funktion}
+
+\subsection{Exponentialfunktion-Funktion $f(z) = e^z$}
+Die Exp-Funktion ist $2\pi j$-Periodisch. Die Waagrechten Gitternetzlinien bilden Strahlen vom Koordinatenursprung weg, senkrechte Gitternetzlinien hingegen gehen zu konzentrischen Kreise um den Ursprung über.\\
+\includegraphics[width=\columnwidth]{Images/exp_funktion}
+
+
+\subsection{Trigo-Funktion $f(z) = sin(z)$}
+Da bereits $e^z$ $2\pi j$-Periodisch ist, sind auch die Trigonometrischen Funktionen periodisch. Die Gitternetzlinien gehen zu Ellipsen und Hyperbeln über.
+\includegraphics[width=\columnwidth]{Images/sinus_funktion}
