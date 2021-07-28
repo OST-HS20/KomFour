@@ -34,8 +34,52 @@ $\mathbb{R}: \ln(1) = 0 \quad \mathbb{C}: \Ln(1)= 2k\pi j$
 Um eine Abbildung $w$ durch eine Funktion $f$ auszudrücken, werden gegebene Komplexe Zahlen $z_i$ parametrisiert $r(z_i), c(z_i)$ und mit $f$ verrechnet.
 \[z = r(z_i) + jc(z_i) \rightarrow f(z) = w \]
 
+
+
 \subsubsection{Parametrisierung}
-\todo{}
+\subsubsection{Vektoren}
+\begin{minipage}{\columnwidth}	
+	\noindent\textbf{Geraden} parametrisierungen in der Gausschen-Zahlenebene können gleich wie Vektoren beschrieben werden. Wobei $r \in \mathbb{R}$ gilt.
+		
+	\begin{minipage}{0.6\textwidth}
+		\begin{align*}
+			\begin{pmatrix}z_1 \\ z_2\end{pmatrix} &= \begin{pmatrix}1 \\ 2\end{pmatrix} +  r \cdot \begin{pmatrix}1 \\ -1\end{pmatrix} \\
+			z &= 1 + 2j + r \cdot (1-j) \\
+		\end{align*}
+	\end{minipage}%%% to prevent a space
+	\begin{minipage}{0.4\textwidth}
+		\includegraphics[width=\columnwidth]{Images/parameter_gerade}
+	\end{minipage}
+\end{minipage}
+~\\
+\begin{minipage}{\columnwidth}	
+	\noindent\textbf{Kreise} können mithilfe der Eulerform dargestellt werden. Wobei $+t$ im gegen UZS und $-t$ mit UZS richtet:
+	
+	\begin{minipage}{0.6\textwidth}
+		\begin{align*}
+			z = m + r \cdot e ^{\pm jt} \qquad t \in [0; 2\pi)
+		\end{align*}
+	\end{minipage}%%% to prevent a space
+	\begin{minipage}{0.4\textwidth}
+		\includegraphics[width=\columnwidth]{Images/parameter_kreis}
+	\end{minipage}
+\end{minipage}
+
+~\\
+\begin{minipage}{\columnwidth}	
+	\noindent\textbf{Ellipsen} können ähnlich wie Kreise mit Parameter $a,b \in \mathbb{R}$ parametrisiert werden:
+	
+	\begin{minipage}{0.6\textwidth}
+		\begin{align*}
+			z = a\cdot\cos(t) + j\cdot b \cdot \sin(t) \quad t \in [0; 2\pi)
+		\end{align*}
+	\end{minipage}%%% to prevent a space
+	\begin{minipage}{0.4\textwidth}
+		\includegraphics[width=\columnwidth]{Images/parameter_ellipse}
+	\end{minipage}
+\end{minipage}
+
+\newpage 
 
 \subsection{Ableitung}
 Die Ableitung $f'$ in $\mathbb{C}$ entspricht einer Drehstreckung mit Faktor $f'$. Eine differenzierbare Funktion $f$ ist in allen Punkten mit $f'(z) \neq 0$ winkeltreu. Sie bewirkt dort eine Drehstreckung mit \textbf{Drehwinkel} $\arg(f'(z))$ und \textbf{Streckfaktor} $|f'(z)|$.
@@ -48,15 +92,27 @@ In Polar-Koordinaten Darstellung werden die Winkel um das $n$-Fache verdoppelt, 
 $b$ bewirkt eine Translation um den Ortsvektor $b$. $a$ bewirkt eine Drehstreckung mit Winkel $\arg(a)$ und Streckung mit $|a|$.
 \includegraphics[width=\columnwidth]{Images/lineare_funktion}
 
-\newpage
 
 \subsection{Kehrwertfunktion $f(z) = \frac{1}{z}$}
-Bewirkt eine Kreisspiegelung.
+Bewirkt eine \underline{Kreisspiegelung}. Viele Gebiete können via Rand mit folgenden Umformungen abgesteckt und bestimmt werden.
 
-\includegraphics[width=\columnwidth]{Images/kehrwert_funktion}
-\noindent Folgende möglichen Fälle sind zu unterscheiden:\\
-\includegraphics[width=\columnwidth]{Images/kreisspiegelung}
+\includegraphics[width=\columnwidth]{Images/kehrwert_funktion}\\
+~\\
+Folgende möglichen Fälle sind zu unterscheiden:\\
+\noindent (1) Gerade durch Ursprung $U$ beleibt gerade.\\
+\includegraphics[width=\columnwidth]{Images/kreisspiegelung_gerade_o}
 
+~\\
+\noindent (2) Gerade $g$ nicht durch $U$ wird zu Kreis, Wobei Strecke des Schnittpunktes $S$ der orthogonale $g'$ mit $g$, $\frac{1}{s}$ gerechnet wird und diese den Radius von Kreis $k$ definiert.\\
+\includegraphics[width=\columnwidth]{Images/kreisspiegelung_gerade_no}
+
+~\\
+\noindent (3) Kreis durch $U$ wird zu Gerade. Dabei wird Strecke $s$ von Hilfsgerade $h$ und Schnittpunkt von Kreis $k$ $\frac{1}{s}$ gerechnet. Diese neue Strecke $s'$ definiert die orthogonale Gerade $g$\\
+\includegraphics[width=\columnwidth]{Images/kreisspiegelung_kreis_o}
+
+~\\
+\noindent (4) Kreis nicht durch Ursprung bleibt Kreis. Der neue Kreis bleibt auf Hilfsgerade $h$ wobei Schnittpunkte und Mittelpunkt jeweils $\frac{1}{s}$ den neuen Punkt definieren. \\
+\includegraphics[width=\columnwidth]{Images/kreisspiegelung_kreis_no}
 
 \subsection{Möbiustransformation $f(z) = \frac{az+b}{cz+d}$}
 Die Möbius-Transformation ist eine Kombination aus:

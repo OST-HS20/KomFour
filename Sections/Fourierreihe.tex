@@ -1,16 +1,15 @@
 \section{Fourierreihe}
-Die Basis-Funktionen bestehen aus unendlich vielen:
-\[\omega_f = \frac{2\pi}{T} = 2\pi v\]
+Die Fourierreihe $FR$ von einer Funktion $f(t)$ besteht aus Fourierkoeffizienten und entsprechender Basis in unendlich vielen Dimensionen:
 \[
-t_n = \sin(n\omega_f t + \phi_n) \qquad (n \in \mathbf{N})
+FR[f(t)] = \frac{a_0}{2} + \sum_{n = 1}^{\infty}[a_n \cdot \cos(n\omega_ft) + b_n \cdot \sin(n\omega_ft)]
 \]
-\[
-= \sin(\phi_n) \cdot \cos(n\omega_f t) + \cos(\phi_n)\cdot \sin(n\omega_f)
-\]
-\todo{Di 11.5.21}
+
+\noindent Dabei gilt, dass $\omega = \frac{2\pi}{T}$.
+
+\noindent\textbf{Hinweis:} Immer zuerst überprüfen, ob eine Ähnliche $FR$ bereits existiert und mit Hilfe der Tip's in \ref{tip} berechnen.
 
 \subsection{Fourierkoeffizienten}
-Eine periodische Funktion $f$ mit Periode $T > 0$, lässt sich durch eine Reihe von Sinus- und Kosinusfunktionen darstellen,
+Eine periodische Funktion $f$ mit \textbf{Periodendauer} $T > 0$, lässt sich durch eine Reihe von Sinus- und Kosinusfunktionen darstellen,
 deren Frequenzen ganzzahlige Vielfache der Grundfrequenz $\omega = 2\pi/T$ sind:
 \[f(t) = \frac{a_0}{2} + \sum_{n = 1}^{\infty}[a_n \cdot \cos(n\omega_ft) + b_n \cdot \sin(n\omega_ft)]\]
 
@@ -26,7 +25,7 @@ a_n = \frac{2}{T}\int_{0}^{T}f(t) \cdot \cos(n\omega t)dt \qquad b_n = \frac{2}{
 \[
 \sum_{k=-\infty}^{\infty}\left(c_ke^{jk\omega_f t}\right)
 \]
-Diese Fourierkoeffizienten $c_n$ können mit einer Integration berechnet werden:
+Diese Fourierkoeffizienten $c_n$ können mit einer einzigen Integration berechnet werden:
 \[
 c_n = \frac{1}{T} \int_{0}^{T}f(t)\cdot e^{-jn\omega_f t} dt
 \]
@@ -39,11 +38,64 @@ Um Komplexe zu Reellen Koeffizieten umzurechnen können folgende Formeln gebrauc
 	b_n &= -2\Im(c_n) = j(c_n + c_{-n}) &\qquad n \in (1,2, \cdots) \\
 \end{align*}
 
-\subsection{Tip's}
-\todo{Di. 25.5.21}
-\begin{enumerate}[nosep]
-	\item Symmetrie 3.3.1 $f(-t) = f(t)$
-	\item Linearität Kapitel 3.3.2
-	\item Zeitspiegelung Kapitel 3.3.3
-	\item Zeitverschiebung Kapitel 3.3.4
-\end{enumerate}
+\subsection{Tip's}\label{tip}
+\subsubsection{Symmetrie}
+Für alle \textbf{geraden} T-periodische Funktionen ($f(t) = f(-t)$)  gilt $b_n = 0$ und für $a_n$ gilt: 
+\[
+a_n = \frac{4}{T}\int_{0}^{\frac{T}{2}}f(t) \cdot \cos(n\omega_f t)dt
+\]
+
+\noindent Ist die Funktion \textbf{ungerade} ($f(-t) = -f(t)$) dann gilt $a_n = 0$ und für $b_n$:
+\[
+	b_n = \frac{4}{T}\int_{0}^{\frac{T}{2}}f(t) \cdot \sin(n\omega_f t)dt 
+\]
+
+
+\subsubsection{Linearität}
+Wenn $f(t)$ und $g(t)$ zwei T-periodische Funktionen mit Fourierkoeffizienten $a_n^{(f)}$ und $b_n^{(f)}$ bzw.  $a_n^{(g)}$ und $b_n^{(g)}$ sind, dann hat die Funktion $h(t) = r \cdot f(t) + s \cdot g(t)$ mit festen $r,s \in \mathbb{R}$ folgende Koeffizienten:
+\begin{align*}
+	a_n^{(h)} &= r \cdot a_n^{(f)} + s \cdot a_n^{(g)} \\
+	b_n^{(h)} &= r \cdot b_n^{(f)} + s \cdot b_n^{(g)} \\
+\end{align*}
+\noindent\textbf{Beispiel:}~\\
+\noindent Funktion $g(t) = 1$ um einen Offset zu erzeugen. Dabei ist $s$ der Mittelwert von $h(t)$. Am Schluss gemäss Linearität alle neuen Koeffizienten berechnen.
+\[
+	s = \frac{1}{2} \qquad
+	1 = r\cdot \frac{\pi}{4} + \frac{1}{2} \cdot 1 \Rightarrow r = \frac{2}{\pi}
+\]
+\begin{center}
+	\includegraphics[width=0.7\columnwidth]{Images/linearität}
+\end{center}
+
+\subsubsection{Zeitstreckung/Stauchung}
+Es sei $f$ eine T-periodische Funktion mit Fourierreihe und $g(t) = f(r \cdot t)$ mit $r \in \mathbb{R}\setminus0$.
+\[
+r = \begin{cases}
+		r > 1, & \text{Stauchung}\\
+		r < 1, & \text{Streckung}\\
+		r < 0, & \text{Spiegelung inkl. Stauchung/Streckung}\\
+	\end{cases}
+\]
+
+\noindent Dann gilt für die Fourierkoeffizienten:
+\begin{align*}
+	a_n^{(g)} &= a_n^{(f)} \\
+	b_n^{(g)} &= \underbrace{\sgn(r)}_{\text{Vorzeichen von } r} \cdot b_n^{(f)} \\
+\end{align*}
+
+\noindent\textbf{ACHTUNG:} Die Fourierreihe $FR[f(t)]$ ändert, da die Periodendauer $T$ ändert. Das bedeutet neu ist $\omega_{\text{neu}} = \frac{2\pi}{T_{\text{neu}}}$. Beispiel für $T = 2 \rightarrow \omega_{\text{neu}} = \pi$:
+\[
+FR[f(t)] = a_0 + a_1\cdot\sin(1\pi t) + a_2\cdot\sin(2\pi t) + \cdots + a_n\cdot\sin(n\omega_{\text{neu}} t)
+\]
+
+\subsubsection{Zeitverschiebung}
+Wenn eine Funktion $f(t)$ um $t_0$ verschoben wird $g(t) = f(t + t_0)$, gilt für die Fourierkoeffizienten von $g$:
+\[
+t_0 < 0 \Rightarrow \text{Links verschiebung} \qquad t_0 > 0 \Rightarrow \text{Rechts verschiebung}
+\]
+
+\begin{align*}
+	a_n^{(g)} &= \cos(n\omega t_0) \cdot a_n^{(f)} + \sin(n\omega t_0) \cdot b_n^{(f)}  \\
+	b_n^{(g)} &= -\sin(n\omega t_0) \cdot a_n^{(f)} + \cos(n\omega t_0) \cdot b_n^{(f)}  \\
+\end{align*}
+
