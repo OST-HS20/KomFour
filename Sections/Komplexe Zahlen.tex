@@ -18,15 +18,15 @@ $\Re(a) = a_1$\\
 $\Im(a) = a_2$\\
 
 \noindent\textbf{Komplex Konjugiert}\\
-$\overline{z} = z^* = \overline{z_1 + jz_2} = z_1 - jz_2$\\
+$\overline{a} = a^* = \overline{a_1 + ja_2} = a_1 - ja_2$\\
 
 \noindent\textbf{Betrag}\\
 $\left|a\right| = r = \sqrt{\Re(a)^2 + \Im(a)^2} = \sqrt{a_1^2 + a_2^2} $\\
 
 \noindent\textbf{Argument}\\
 $\arg(a) = \zeta = \left\{\begin{array}{ll}
-	a_2 \geq 0 ,& \arccos\left(\frac{a_1}{r}\right) \\
-	a_2 < 0 ,& -\arccos\left(\frac{a_1}{r}\right) \\
+	a_2 \geq 0 ,& \arccos\left(\frac{a_1}{r}\right) \text{ oder } \arctan\left(\frac{a_1}{a_2}\right)\\
+	a_2 < 0 ,& -\arccos\left(\frac{a_1}{r}\right) \text{ oder } \arctan\left(\frac{a_1}{a_2}\right) + \pi\\
 \end{array}\right.$\\
 
 
@@ -48,24 +48,28 @@ $\frac{a_1 + ja_2}{b_1 + jb_2} = \frac{(a_1 + ja_2)}{(b_1 + jb_2)} \cdot \underb
 \subsubsection{Polar}
 In diesem Koordinatensystem lassen sich \textit{Multiplikation} und \textit{Division} besonders einfach lösen!
 
-\noindent\textbf{Multiplikation}\\
-$\Re(z) = |a_1| \cdot |b_1| \qquad \Im(z) = \arg(a_2 \cdot b_2) = \arg(a_2) + \arg(b_2)$\\
+\noindent\textbf{Multiplikation $a \cdot b = c$}\\
+$\Re(c) = |a_1| \cdot |b_1| \qquad \Im(z) = \arg(a_2 \cdot b_2) = \arg(a_2) + \arg(b_2)$\\
 
-\noindent\textbf{Division}\\
-$\Re(z) = \frac{a_1}{b_1} \qquad \Im(z) = \arg(\frac{a_2}{b_2}) = \arg(a_2) - \arg(b_2)$\\
+\noindent\textbf{Division  $\frac{a}{b} = c$}\\
+$\Re(c) = \frac{a_1}{b_1} \qquad \Im(z) = \arg(\frac{a_2}{b_2}) = \arg(a_2) - \arg(b_2)$\\
 
-\noindent\textbf{Potenz ($n \in \mathbb{N}$)}\\
-$z^n = r^n \cdot [\cos(\zeta) + j\sin(\zeta)]^n = r^n \cdot [\cos(n\zeta) + j\sin(n\zeta)]$\\
+\noindent\textbf{Potenz ($n \in \mathbb{N}$)}, für $n \in \mathbb{C}$ siehe \ref{potfunc}\\
+$a^n = r^n \cdot [\cos(\zeta) + j\sin(\zeta)]^n = r^n \cdot [\cos(n\zeta) + j\sin(n\zeta)]$\\
 
 \noindent\textbf{n-te Wurzel}\\
 $z_{k+1} = \sqrt[n]{r} \cdot \cjs\left(\frac{2\pi}{n} + k \cdot \frac{2\pi}{n}\right) \qquad k \in (0, 1, \cdots, n-1)$
 
 ~\\
-\noindent\textbf{Hinweis:} Diese Punkte $z_{k+1}$ liegen im Abstand von $\sqrt[n]{r}$ zum Ursprung als regelmässiges n-Eck angeordnet. Alle $\Im(z_{k+1}) \neq 0$ \underline{müssen} konjugiert komplex sein (Vorzeichenwechsel von $\Im$ Komponente)!
+\noindent\textbf{Hinweis:} Diese Punkte $z_{k+1}$ liegen im Abstand von $\sqrt[n]{r}$ zum Ursprung als regelmässiges n-Eck angeordnet. Alle $\Im(z_{k+1}) \neq 0$ \underline{müssen} konjugiert komplex sein (Vorzeichenwechsel von $\Im$ Komponente)! Reelle Lösungen treten nur einzeln auf. 
 
 \subsection{Polarform Umwandlung}
+Beispiel Format:
+\[
+z = z_1+ jz_2 \xRightarrow[]{\text{Polar (Trigo)}} r \cdot \left[\cos(\zeta) + j\sin(\zeta)\right] \xRightarrow[]{\text{Euler}} r \cdot e^{\zeta j}
+\]
 \begin{center}
-	\includegraphics[width=0.7\columnwidth]{Images/umwandlung}
+	\includegraphics[width=0.6\columnwidth]{Images/umwandlung}
 \end{center}
 
 \subsection{Ebene Geometrie}

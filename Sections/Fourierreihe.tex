@@ -9,8 +9,7 @@ FR[f(t)] = \frac{a_0}{2} + \sum_{n = 1}^{\infty}[a_n \cdot \cos(n\omega_ft) + b_
 \noindent\textbf{Hinweis:} Immer zuerst überprüfen, ob eine Ähnliche $FR$ bereits existiert und mit Hilfe der Tip's in \ref{tip} berechnen.
 
 \subsection{Fourierkoeffizienten}
-Eine periodische Funktion $f$ mit \textbf{Periodendauer} $T > 0$, lässt sich durch eine Reihe von Sinus- und Kosinusfunktionen darstellen,
-deren Frequenzen ganzzahlige Vielfache der Grundfrequenz $\omega = 2\pi/T$ sind:
+Eine periodische Funktion $f$ mit \textbf{Periodendauer} $T > 0$, lässt sich durch eine Reihe von Sinus- und Kosinusfunktionen darstellen, deren Frequenzen ganzzahlige Vielfache der Grundfrequenz $\omega = 2\pi/T$ sind:
 \[f(t) = \frac{a_0}{2} + \sum_{n = 1}^{\infty}[a_n \cdot \cos(n\omega_ft) + b_n \cdot \sin(n\omega_ft)]\]
 
 \noindent Konkret können die Koeffizienten der Funktion $f(t)$ folgendermassen berechnet werden ($n \in [1;\infty]$):
@@ -23,11 +22,11 @@ a_n = \frac{2}{T}\int_{0}^{T}f(t) \cdot \cos(n\omega t)dt \qquad b_n = \frac{2}{
 
 \noindent Mittels der komplexen Darstellung werden die Fourierkoeffizienten mit $c_n \rightarrow \Re(c_n) = a_n; \Im(c_n) = b_n$ dargestellt.
 \[
-\sum_{k=-\infty}^{\infty}\left(c_ke^{jk\omega_f t}\right)
+\sum_{n=-\infty}^{\infty}c_n \cdot e^{jk\omega t}
 \]
 Diese Fourierkoeffizienten $c_n$ können mit einer einzigen Integration berechnet werden:
 \[
-c_n = \frac{1}{T} \int_{0}^{T}f(t)\cdot e^{-jn\omega_f t} dt
+c_n = \frac{1}{T} \int_{0}^{T}f(t)\cdot e^{-jn\omega t} dt
 \]
 
 \subsubsection{Umrechnung}\label{umrechnung}
@@ -39,15 +38,34 @@ Um Komplexe zu Reellen Koeffizieten umzurechnen können folgende Formeln gebrauc
 \end{align*}
 
 \subsection{Tip's}\label{tip}
-\subsubsection{Symmetrie}
-Für alle \textbf{geraden} T-periodische Funktionen ($f(t) = f(-t)$)  gilt $b_n = 0$ und für $a_n$ gilt: 
+\subsubsection{Funktionen mit Fallunterscheidungen}
+Falls eine Funktion mit Fallunterscheidung in eine Fourierreihe transformiert werden muss, muss von Rand-zu-Rand integriert werden.
+
+\noindent\textbf{Beispiel:}
 \[
-a_n = \frac{4}{T}\int_{0}^{\frac{T}{2}}f(t) \cdot \cos(n\omega_f t)dt
+f(t)= e^{-\left|t\right|} \qquad t \in [-\pi;\pi] \qquad T = 2\pi
+\]
+\begin{center}
+	\includegraphics[width=0.6\columnwidth]{Images/\beispiel_e_cn}
+\end{center}
+
+\noindent Dafür kann für Reelle Koeffizienten die Symmetrie ausgenutzt und von $[0;\pi]$ integriert werden. In der Komplexen Welt \textit{müssen} zwei Integrale berechnet werden:
+\[
+c_n = \frac{1}{2\pi}\int_{-\pi}^{0}e^t\cdot e^{-jnt}dt + \int_{0}^{\pi}e^{-t}\cdot e^{-jnt}dt
 \]
 
-\noindent Ist die Funktion \textbf{ungerade} ($f(-t) = -f(t)$) dann gilt $a_n = 0$ und für $b_n$:
+\subsubsection{Symmetrie}
+\textbf{ACHTUNG:} Gilt nur für $\mathbb{R}$ Fourierreihe! In $\mathbb{C}$ Reihe darf nicht über die halbe Periode Integriert und das Resultat verdoppelt werden! 
+~\\
+~\\
+\noindent Für alle \textbf{geraden} T-periodische Funktionen ($f(t) = f(-t)$)  gilt $b_n = 0$ und für $a_n$ gilt ($\Im(c_n) = 0$): 
 \[
-	b_n = \frac{4}{T}\int_{0}^{\frac{T}{2}}f(t) \cdot \sin(n\omega_f t)dt 
+a_n = \frac{4}{T}\int_{0}^{\frac{T}{2}}f(t) \cdot \cos(n\omega t)dt
+\]
+
+\noindent Ist die Funktion \textbf{ungerade} ($f(-t) = -f(t)$) dann gilt $a_n = 0$ und für $b_n$ ($\Re(c_n) = 0$):
+\[
+	b_n = \frac{4}{T}\int_{0}^{\frac{T}{2}}f(t) \cdot \sin(n\omega t)dt 
 \]
 
 
@@ -89,13 +107,34 @@ FR[f(t)] = a_0 + a_1\cdot\sin(1\pi t) + a_2\cdot\sin(2\pi t) + \cdots + a_n\cdot
 \]
 
 \subsubsection{Zeitverschiebung}
-Wenn eine Funktion $f(t)$ um $t_0$ verschoben wird $g(t) = f(t + t_0)$, gilt für die Fourierkoeffizienten von $g$:
+Wenn eine Funktion $f(t)$ um $t_0$ verschoben wird $g(t) = f(t + t_0)$, gilt für die Fourierkoeffizienten von $g$.
 \[
 t_0 < 0 \Rightarrow \text{Links verschiebung} \qquad t_0 > 0 \Rightarrow \text{Rechts verschiebung}
 \]
 
+\noindent\textbf{Für $\mathbb{R}$}:
 \begin{align*}
 	a_n^{(g)} &= \cos(n\omega t_0) \cdot a_n^{(f)} + \sin(n\omega t_0) \cdot b_n^{(f)}  \\
 	b_n^{(g)} &= -\sin(n\omega t_0) \cdot a_n^{(f)} + \cos(n\omega t_0) \cdot b_n^{(f)}  \\
 \end{align*}
 
+\noindent\textbf{Für $\mathbb{C}$}:
+\[
+c_n^{(g)} = e^{jn\omega t_0} \cdot c_n^{(f)}
+\]
+
+\subsection{Konvergenzverhalten}
+Um das Konvergenzverhalten von $f$ und der Fourierreihe $\hat{f}$ zu untersuchen, wird die mittlere quadratische Abweichung verwendet:
+\[
+\Vert f - \hat{f} \Vert = \sqrt{\frac{2}{T}\int_{0}^{T}\left[f(t) - \hat{f}(t)\right]^2dt}
+\]
+\begin{center}
+	\includegraphics[width=\columnwidth]{Images/konvergenz}
+\end{center}
+
+\noindent Das hat zur Folge, dass die Fourierkoeffizienten $a_n$ und $b_n$ gegen $0$ konvergieren müssen. Je \textit{glatter} eine Funktion, desto schneller Konvergiert die Fourierreihe $\hat{f}$ mit der Original Reihe $f$. "Glat" bedeutet, je mehr Ableitungen ohne Sprungstellen oder Knicke eine Funktion $f^{(n)}$ hat, desto schneller konvergiert $f$.
+~\\
+\noindent Zudem gilt die Parseval'sche Gleichung:
+\[
+\frac{a_0^2}{2} + \sum\limits_{n=1}^{\infty}\left(a_n^2 + b_n^2\right) = \frac{2}{T}\int_{0}^{T}[f(t)]^2dt = \Vert f \Vert^2
+\]

@@ -1,9 +1,22 @@
 \section{Komplexe Funktionen}
-\subsection{Exponential-/Logarithmusfunktion}
-\[e^{j\zeta}= \cjs(\zeta) = \cos\zeta + j\sin\zeta\]
+\subsection{Exponential-/Logarithmusfunktion}\label{expfunc}
+\[e^{j\alpha}= \cjs(\alpha) = \cos\alpha + j\sin\alpha\]
 
 \[e^z= e^{z_1 + jz_2} = e^{z_1}\cdot e^{jz_2} = e^{z_1} \cdot \cjs(z_2) \qquad z \in \mathbb{C} \]
 Realteil $z_1$ von $e^{z_1+jz_2}$ ist der Streckungsfaktor. Der Imaginärteil $z_2$ ist der zweite Term.
+
+\subsection{Logarithmus und Potenzen}
+\subsubsection{Logarithmus}\label{logfunc}
+Der reelle Logarithmus hat den Wert $\ln(1) = 0$. Der komplexe Logarithmus ist definiert als:
+\[\Ln(z) = \ln(\left|z\right|) + j\cdot arg(z) \]
+
+\noindent\textbf{Achtung:} Im komplexen gibt es unendlich viele Lösungen für zB $\Ln(1)= 2k\pi j$. Auch in $\mathbb{C}$ ist $\Ln(0) = undef$ nicht definiert.
+
+\subsubsection{Potenzen}\label{potfunc}
+Potenzen mit komplexen Exponenten besitzen $\infty$-wertig Resultate, nur für $b \in \mathbb{Z}$ sind diese eindeutig.
+\[
+a^b = e^{b \cdot \Ln(a)} \qquad (a,b \in \mathbb{C};  a \neq 0)
+\]
 
 \subsection{Trigonometrie ($z \in \mathbb{C})$}
 \[\sin(z) = \frac{e^{jz} -e^{-jz}}{2j} \quad \cos(a) = \frac{e^{jz} +e^{-jz}}{2} \quad \tan(z) = \frac{\sin(z)}{\cos(z)}\]
@@ -17,24 +30,15 @@ z(t) = A \cdot e^{j(\omega t + \varphi)} = \underbrace{A \cdot e^{j\varphi}}_\te
 \noindent Beispiel:
 \begin{align*}
 	y_1 &= A\sin[\omega t + \varphi] &\qquad y_2 &= A\sin[\omega t + (\varphi + 120°)] \\
-	    &= A e ^{j(\omega t + j\varphi)} &\qquad  &= A e^{j(\omega t + \varphi - 120)}\\
- 	    &= A e ^{j\omega t} \cdot \underbrace{e^{j\varphi}}_{K_1} &\qquad  &= A e^{j\omega t} \cdot \underbrace{e^{j(\varphi - 120)}}_{K_2}\\    
-  	\\
-  y &= y_1 + y_2 &&= A e^{j\omega t} (K_1 + K_2) 
+	&= A e ^{j(\omega t + j\varphi)} &\qquad  &= A e^{j(\omega t + \varphi - 120)}\\
+	&= A e ^{j\omega t} \cdot \underbrace{e^{j\varphi}}_{K_1} &\qquad  &= A e^{j\omega t} \cdot \underbrace{e^{j(\varphi - 120)}}_{K_2}\\    
+	\\
+	y &= y_1 + y_2 &&= A e^{j\omega t} (K_1 + K_2) 
 \end{align*}
-
-\subsection{Logarithmus und Potenzen}
-$\mathbb{R}: \ln(1) = 0 \quad \mathbb{C}: \Ln(1)= 2k\pi j$
-\[\Ln(z) = \ln(\left|z\right|) + j\cdot arg(z) \]
-
-\noindent\textbf{Achtung:} $\Ln(0) = undef$
-
 
 \subsection{Abbildungen}
 Um eine Abbildung $w$ durch eine Funktion $f$ auszudrücken, werden gegebene Komplexe Zahlen $z_i$ parametrisiert $r(z_i), c(z_i)$ und mit $f$ verrechnet.
 \[z = r(z_i) + jc(z_i) \rightarrow f(z) = w \]
-
-
 
 \subsubsection{Parametrisierung}
 \subsubsection{Vektoren}
@@ -82,7 +86,7 @@ Um eine Abbildung $w$ durch eine Funktion $f$ auszudrücken, werden gegebene Kom
 \newpage 
 
 \subsection{Ableitung}
-Die Ableitung $f'$ in $\mathbb{C}$ entspricht einer Drehstreckung mit Faktor $f'$. Eine differenzierbare Funktion $f$ ist in allen Punkten mit $f'(z) \neq 0$ winkeltreu. Sie bewirkt dort eine Drehstreckung mit \textbf{Drehwinkel} $\arg(f'(z))$ und \textbf{Streckfaktor} $|f'(z)|$.
+Die Ableitung $f'$ in $\mathbb{C}$ entspricht einer Drehstreckung mit Faktor $f'$. Eine differenzierbare Funktion $f$ ist in allen Punkten mit $f'(z) \neq 0$ \textbf{winkeltreu}. Sie bewirkt dort eine Drehstreckung mit \textbf{Drehwinkel} $\arg(f'(z))$ und \textbf{Streckfaktor} $|f'(z)|$.
 
 \subsection{Potenzfunktion $f(z) = z^n$}
 In Polar-Koordinaten Darstellung werden die Winkel um das $n$-Fache verdoppelt, bzw. mit $\sqrt[n]{z}$ halbiert.
@@ -94,7 +98,7 @@ $b$ bewirkt eine Translation um den Ortsvektor $b$. $a$ bewirkt eine Drehstrecku
 
 
 \subsection{Kehrwertfunktion $f(z) = \frac{1}{z}$}
-Bewirkt eine \underline{Kreisspiegelung}. Viele Gebiete können via Rand mit folgenden Umformungen abgesteckt und bestimmt werden.
+Bewirkt eine \underline{Kreisspiegelung} und ist überall in $\mathbb{C}\cup\{\infty\}$ winkeltreu. Viele Gebiete können via Rand mit folgenden Umformungen abgesteckt und bestimmt werden.
 
 \includegraphics[width=\columnwidth]{Images/kehrwert_funktion}\\
 ~\\
