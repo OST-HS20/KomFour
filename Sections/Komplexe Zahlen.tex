@@ -9,7 +9,32 @@
 	\includegraphics[width=\columnwidth]{Images/pascaldreieck}\\
 \end{center}
 
+{\setlength{\extrarowheight}{4pt}
+	\begin{tabular}{@{}lcl@{}}
+		\textbf{f(x)} & $\rightarrow$ & \textbf{f'(x)} \\
+		\toprule
+		$c$ & $\rightarrow$ & $0$ \\
+		$x^n$  & $\rightarrow$ & $n\cdot x^{n-1}$ \\
+		$c\cdot g\left(x\right)$  & $\rightarrow$ & $c\cdot g'\left(x\right)$ \\
+		$e^x$  & $\rightarrow$ & $e^x$ \\
+		\midrule
+		$g\left(x\right)+h\left(x\right)$  & $\rightarrow$ & $g'\left(x\right)+h'\left(x\right)$ \\
+		$u\left(x\right)\cdot v\left(x\right)$  & $\rightarrow$ & $u'\left(x\right)\cdot v\left(x\right)+u\left(x\right)\cdot v'\left(x\right)$ \\ 
+		$\frac{u\left(x\right)}{v\left(x\right)}$  & $\rightarrow$ & $\frac{u'\left(x\right)\cdot v\left(x\right)-u\left(x\right)\cdot v'\left(x\right)}{v^2\left(x\right)}$ \\
+		$u\left(v\left(x\right)\right)$  & $\rightarrow$ & $u'\left(v\left(x\right)\right)\cdot v'\left(x\right)$ \\
+		\midrule
+		$\cos\left(x\right)$ & $\rightarrow$ & $-\sin(x)$ \\
+		$\sin\left(x\right)$ & $\rightarrow$ & $\cos(x)$ \\	
+		$\cosh\left(x\right)$ & $\rightarrow$ & $\sinh(x)$ \\
+		$\sinh\left(x\right)$ & $\rightarrow$ & $\cosh(x)$ \\
+		$\tan\left(x\right)$ & $\rightarrow$ & $\frac{1}{\cos^2(x)} = 1 + \tan^2(x)$ \\	
+		$\ln\left(x\right)$ & $\rightarrow$ & $\frac{1}{x}$ \\
+		$f^{-1}\left(x\right) {\scriptscriptstyle (Umkehrf.)}$  & $\rightarrow$ & $\frac{1}{f'(f^{-1}(x))}$ \\
+		$\left|x\right|$ & $\rightarrow$ & $\frac{\left|x\right|}{x}$ \\
+	\end{tabular}
+}
 
+\newpage
 \subsection{Operationen}
 \noindent\textbf{Realteil}\\
 $\Re(a) = a_1$\\
@@ -49,10 +74,10 @@ $\frac{a_1 + ja_2}{b_1 + jb_2} = \frac{(a_1 + ja_2)}{(b_1 + jb_2)} \cdot \underb
 In diesem Koordinatensystem lassen sich \textit{Multiplikation} und \textit{Division} besonders einfach lösen!
 
 \noindent\textbf{Multiplikation $a \cdot b = c$}\\
-$\Re(c) = |a_1| \cdot |b_1| \qquad \Im(z) = \arg(a_2 \cdot b_2) = \arg(a_2) + \arg(b_2)$\\
+$\Re(c) = |a_1| \cdot |b_1| \qquad \Im(c) = \arg(a_2 \cdot b_2) = \arg(a_2) + \arg(b_2)$\\
 
 \noindent\textbf{Division  $\frac{a}{b} = c$}\\
-$\Re(c) = \frac{a_1}{b_1} \qquad \Im(z) = \arg(\frac{a_2}{b_2}) = \arg(a_2) - \arg(b_2)$\\
+$\Re(c) = \frac{a_1}{b_1} \qquad \Im(c) = \arg(\frac{a_2}{b_2}) = \arg(a_2) - \arg(b_2)$\\
 
 \noindent\textbf{Potenz ($n \in \mathbb{N}$)}, für $n \in \mathbb{C}$ siehe \ref{potfunc}\\
 $a^n = r^n \cdot [\cos(\zeta) + j\sin(\zeta)]^n = r^n \cdot [\cos(n\zeta) + j\sin(n\zeta)]$\\

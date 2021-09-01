@@ -1,3 +1,4 @@
+\newpage
 \section{Komplexe Funktionen}
 \subsection{Exponential-/Logarithmusfunktion}\label{expfunc}
 \[e^{j\alpha}= \cjs(\alpha) = \cos\alpha + j\sin\alpha\]
@@ -10,13 +11,14 @@ Realteil $z_1$ von $e^{z_1+jz_2}$ ist der Streckungsfaktor. Der Imaginärteil $z
 Der reelle Logarithmus hat den Wert $\ln(1) = 0$. Der komplexe Logarithmus ist definiert als:
 \[\Ln(z) = \ln(\left|z\right|) + j\cdot arg(z) \]
 
-\noindent\textbf{Achtung:} Im komplexen gibt es unendlich viele Lösungen für zB $\Ln(1)= 2k\pi j$. Auch in $\mathbb{C}$ ist $\Ln(0) = undef$ nicht definiert.
+\noindent\textbf{Achtung:} Im komplexen gibt es unendlich viele Lösungen für zB $\Ln(-j)= j(-\frac{\pi}{2} + 2k\pi)$. Auch in $\mathbb{C}$ ist $\Ln(0) = undef$ nicht definiert.
 
 \subsubsection{Potenzen}\label{potfunc}
 Potenzen mit komplexen Exponenten besitzen $\infty$-wertig Resultate, nur für $b \in \mathbb{Z}$ sind diese eindeutig.
 \[
 a^b = e^{b \cdot \Ln(a)} \qquad (a,b \in \mathbb{C};  a \neq 0)
 \]
+\textbf{Beispiel:} $z = (-j)^{2j} \Rightarrow e^{2j \cdot \Ln(-j)} = e^{\pi - 4k\pi}$
 
 \subsection{Trigonometrie ($z \in \mathbb{C})$}
 \[\sin(z) = \frac{e^{jz} -e^{-jz}}{2j} \quad \cos(a) = \frac{e^{jz} +e^{-jz}}{2} \quad \tan(z) = \frac{\sin(z)}{\cos(z)}\]
@@ -83,8 +85,6 @@ Um eine Abbildung $w$ durch eine Funktion $f$ auszudrücken, werden gegebene Kom
 	\end{minipage}
 \end{minipage}
 
-\newpage 
-
 \subsection{Ableitung}
 Die Ableitung $f'$ in $\mathbb{C}$ entspricht einer Drehstreckung mit Faktor $f'$. Eine differenzierbare Funktion $f$ ist in allen Punkten mit $f'(z) \neq 0$ \textbf{winkeltreu}. Sie bewirkt dort eine Drehstreckung mit \textbf{Drehwinkel} $\arg(f'(z))$ und \textbf{Streckfaktor} $|f'(z)|$.
 
@@ -98,10 +98,10 @@ $b$ bewirkt eine Translation um den Ortsvektor $b$. $a$ bewirkt eine Drehstrecku
 
 
 \subsection{Kehrwertfunktion $f(z) = \frac{1}{z}$}
-Bewirkt eine \underline{Kreisspiegelung} und ist überall in $\mathbb{C}\cup\{\infty\}$ winkeltreu. Viele Gebiete können via Rand mit folgenden Umformungen abgesteckt und bestimmt werden.
+Bewirkt eine \underline{Kreisspiegelung} und mit der Definition $\frac{1}{\infty} = 0$ bzw. $\frac{1}{0} = \infty$ ist die Kehrwertfunktion überall in $\mathbb{C}\cup\{\infty\}$ winkeltreu. Viele Gebiete können via Rand mit folgenden Umformungen abgesteckt und bestimmt werden.
 
 \includegraphics[width=\columnwidth]{Images/kehrwert_funktion}\\
-~\\
+
 Folgende möglichen Fälle sind zu unterscheiden:\\
 \noindent (1) Gerade durch Ursprung $U$ beleibt gerade.\\
 \includegraphics[width=\columnwidth]{Images/kreisspiegelung_gerade_o}

@@ -11,15 +11,19 @@ FR[f(t)] = \frac{a_0}{2} + \sum_{n = 1}^{\infty}[a_n \cdot \cos(n\omega_ft) + b_
 \subsection{Fourierkoeffizienten}
 Eine periodische Funktion $f$ mit \textbf{Periodendauer} $T > 0$, lässt sich durch eine Reihe von Sinus- und Kosinusfunktionen darstellen, deren Frequenzen ganzzahlige Vielfache der Grundfrequenz $\omega = 2\pi/T$ sind:
 \[f(t) = \frac{a_0}{2} + \sum_{n = 1}^{\infty}[a_n \cdot \cos(n\omega_ft) + b_n \cdot \sin(n\omega_ft)]\]
-
+\subsubsection{$\mathbb{R}$ Koeffiziente}
 \noindent Konkret können die Koeffizienten der Funktion $f(t)$ folgendermassen berechnet werden ($n \in [1;\infty]$):
 \[
 a_n = \frac{2}{T}\int_{0}^{T}f(t) \cdot \cos(n\omega t)dt \qquad b_n = \frac{2}{T}\int_{0}^{T}f(t) \cdot \sin(n\omega t)dt
 \]
 
-\noindent Der erste Koeffizient $a_0$ der Funktion $f(t)$ ist der Mittelwert im Intervall $(0; T)$. Bei einer Fallunterscheidung von $f(t)$ müssen Integrale von allen Fällen (mit entsprechenden Grenzen von $f_n$) summiert werden.
+\noindent Der erste Koeffizient $a_0 = \frac{1}{T}\int\limits_{0}^{T}f(t)dt$ der Funktion $f(t)$ ist der Mittelwert im Intervall $(0; T)$. Bei einer \underline{Fallunterscheidung} von $f(t)$ müssen Integrale von allen Fällen (mit entsprechenden Grenzen von $f_n$) summiert werden.
 ~\\
 
+\noindent\textbf{Hilfe:} $\cos(n\pi) = (-1)^n$ und $\sin(n\pi) = 0$ 
+~\\
+
+\subsubsection{$\mathbb{C}$ Koeffiziente}
 \noindent Mittels der komplexen Darstellung werden die Fourierkoeffizienten mit $c_n \rightarrow \Re(c_n) = a_n; \Im(c_n) = b_n$ dargestellt.
 \[
 \sum_{n=-\infty}^{\infty}c_n \cdot e^{jk\omega t}
@@ -28,6 +32,8 @@ Diese Fourierkoeffizienten $c_n$ können mit einer einzigen Integration berechne
 \[
 c_n = \frac{1}{T} \int_{0}^{T}f(t)\cdot e^{-jn\omega t} dt
 \]
+
+\noindent\textbf{Hilfe:} $e^{-jn\pi} = (-1)^n$ und $e^{-jn2\pi} = 1$
 
 \subsubsection{Umrechnung}\label{umrechnung}
 Um Komplexe zu Reellen Koeffizieten umzurechnen können folgende Formeln gebraucht werden:
@@ -58,12 +64,12 @@ c_n = \frac{1}{2\pi}\int_{-\pi}^{0}e^t\cdot e^{-jnt}dt + \int_{0}^{\pi}e^{-t}\cd
 \textbf{ACHTUNG:} Gilt nur für $\mathbb{R}$ Fourierreihe! In $\mathbb{C}$ Reihe darf nicht über die halbe Periode Integriert und das Resultat verdoppelt werden! 
 ~\\
 ~\\
-\noindent Für alle \textbf{geraden} T-periodische Funktionen ($f(t) = f(-t)$)  gilt $b_n = 0$ und für $a_n$ gilt ($\Im(c_n) = 0$): 
+\noindent Für alle \textbf{geraden} (Achsensymmetrisch) T-periodische Funktionen ($f(t) = f(-t)$)  gilt $b_n = 0$ und für $a_n$ gilt: cos ist gerade 
 \[
 a_n = \frac{4}{T}\int_{0}^{\frac{T}{2}}f(t) \cdot \cos(n\omega t)dt
 \]
 
-\noindent Ist die Funktion \textbf{ungerade} ($f(-t) = -f(t)$) dann gilt $a_n = 0$ und für $b_n$ ($\Re(c_n) = 0$):
+\noindent Ist die Funktion \textbf{ungerade} (Punktsymmetrisch) ($f(-t) = -f(t)$) dann gilt $a_n = 0$ und für $b_n$: sin ist ungerade
 \[
 	b_n = \frac{4}{T}\int_{0}^{\frac{T}{2}}f(t) \cdot \sin(n\omega t)dt 
 \]
